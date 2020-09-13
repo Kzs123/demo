@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+
+  <!-- 引入样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css" rel="external nofollow" target="_blank" >
+
+  <!-- 引入 Vue 和 Vant 的 JS 文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js" rel="external nofollow" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js" rel="external nofollow" ></script>
+
+
+
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+
+  <script>
+  // 在 #app 标签下渲染一个按钮组件
+  new Vue({
+    el: '#app',
+    template: `<van-button>按钮</van-button>`
+  });
+
+  // 调用函数组件，弹出一个 Toast
+  vant.Toast('提示');
+  // 通过 CDN 引入时不会自动注册 Lazyload 组件
+  // 可以通过下面的方式手动注册
+  Vue.use(vant.Lazyload);
+  </script>
+
+</html>
